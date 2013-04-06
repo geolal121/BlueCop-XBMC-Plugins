@@ -16,17 +16,17 @@ pluginhandle = int(sys.argv[1])
 addon = xbmcaddon.Addon('plugin.video.reddit.bc')
 pluginpath = addon.getAddonInfo('path')
 
-BASE = 'http://www.reddit.com/r/videos'
+BASE = 'http://www.reddit.com/r/'
 COOKIEFILE = os.path.join(pluginpath,'resources','reddit-cookies.lwp')
 
 confluence_views = [500,501,502,503,504,508]
 
 # Root listing
 def listCategories():
-    addDir("What's Hot",        BASE+'.json',                'listVideos', '')
-    addDir("New",               BASE+'/new.json',            'listVideos', '')
-    addDir("Controversial",     BASE+'/controversial.json',  'listVideos', '')
-    addDir("Top",               BASE+'/top.json',            'listVideos', '')
+    addDir("Videos",                    BASE+'videos.josn',               'listVideos', '')
+    addDir("Documentaries",             BASE+'documentaries.json',        'listVideos', '')
+    addDir("Full Movies on YouTube",    BASE+'fullmoviesonyoutube.json',  'listVideos', '')
+    addDir("Gaming",                    BASE+'gaming.json',               'listVideos', '')
     xbmcplugin.endOfDirectory(pluginhandle)
     
 def listVideos(url=False, updateListing=False):
